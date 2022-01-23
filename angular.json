@@ -2,6 +2,8 @@
   "version": 2,
   "projects": {
     "app-initializer-demo": "apps/app-initializer-demo",
-    "app-initializer-demo-e2e": "apps/app-initializer-demo-e2e"
+    "app-initializer-demo-e2e": "apps/app-initializer-demo-e2e",
+    "manual-bootstrap": "apps/manual-bootstrap",
+    "manual-bootstrap-e2e": "apps/manual-bootstrap-e2e"
   }
 }

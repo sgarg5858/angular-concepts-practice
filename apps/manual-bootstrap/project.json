@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/manual-bootstrap",
+  "sourceRoot": "apps/manual-bootstrap/src",
+  "prefix": "dependency-injection",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/manual-bootstrap",
+        "index": "apps/manual-bootstrap/src/index.html",
+        "main": "apps/manual-bootstrap/src/main.ts",
+        "polyfills": "apps/manual-bootstrap/src/polyfills.ts",
+        "tsConfig": "apps/manual-bootstrap/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/manual-bootstrap/src/favicon.ico",
+          "apps/manual-bootstrap/src/assets"
+        ],
+        "styles": ["apps/manual-bootstrap/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/manual-bootstrap/src/environments/environment.ts",
+              "with": "apps/manual-bootstrap/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "manual-bootstrap:build:production"
+        },
+        "development": {
+          "browserTarget": "manual-bootstrap:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "manual-bootstrap:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/manual-bootstrap/src/**/*.ts",
+          "apps/manual-bootstrap/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/manual-bootstrap"],
+      "options": {
+        "jestConfig": "apps/manual-bootstrap/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

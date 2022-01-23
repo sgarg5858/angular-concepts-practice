@@ -1,0 +1,28 @@
+{
+  "root": "apps/manual-bootstrap-e2e",
+  "sourceRoot": "apps/manual-bootstrap-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/manual-bootstrap-e2e/cypress.json",
+        "devServerTarget": "manual-bootstrap:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "manual-bootstrap:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/manual-bootstrap-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["manual-bootstrap"]
+}
