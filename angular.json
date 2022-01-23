@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "app-initializer-demo": "apps/app-initializer-demo",
+    "app-initializer-demo-e2e": "apps/app-initializer-demo-e2e"
+  }
+}

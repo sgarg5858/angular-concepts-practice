@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/app-initializer-demo",
+  "sourceRoot": "apps/app-initializer-demo/src",
+  "prefix": "dependency-injection",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/app-initializer-demo",
+        "index": "apps/app-initializer-demo/src/index.html",
+        "main": "apps/app-initializer-demo/src/main.ts",
+        "polyfills": "apps/app-initializer-demo/src/polyfills.ts",
+        "tsConfig": "apps/app-initializer-demo/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/app-initializer-demo/src/favicon.ico",
+          "apps/app-initializer-demo/src/assets"
+        ],
+        "styles": ["apps/app-initializer-demo/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/app-initializer-demo/src/environments/environment.ts",
+              "with": "apps/app-initializer-demo/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "app-initializer-demo:build:production"
+        },
+        "development": {
+          "browserTarget": "app-initializer-demo:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "app-initializer-demo:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/app-initializer-demo/src/**/*.ts",
+          "apps/app-initializer-demo/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/app-initializer-demo"],
+      "options": {
+        "jestConfig": "apps/app-initializer-demo/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
