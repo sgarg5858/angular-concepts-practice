@@ -10,4 +10,14 @@ if (environment.production) {
 
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
+  .catch((err) => 
+  {
+  console.error(err)
+  const errorElement = document.querySelector('#myElement');
+  if(errorElement)
+  {
+    errorElement.textContent="App Initialization Failed! Coming From main.ts file when promise from APP_INITIALIZER fails";
+  }
+  }
+
+  );
