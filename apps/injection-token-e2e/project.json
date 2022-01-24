@@ -1,0 +1,28 @@
+{
+  "root": "apps/injection-token-e2e",
+  "sourceRoot": "apps/injection-token-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/injection-token-e2e/cypress.json",
+        "devServerTarget": "injection-token:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "injection-token:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/injection-token-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["injection-token"]
+}

@@ -3,7 +3,13 @@
   "projects": {
     "app-initializer-demo": "apps/app-initializer-demo",
     "app-initializer-demo-e2e": "apps/app-initializer-demo-e2e",
+    "bridge-pattern": "apps/bridge-pattern",
+    "bridge-pattern-e2e": "apps/bridge-pattern-e2e",
+    "injection-token": "apps/injection-token",
+    "injection-token-e2e": "apps/injection-token-e2e",
     "manual-bootstrap": "apps/manual-bootstrap",
-    "manual-bootstrap-e2e": "apps/manual-bootstrap-e2e"
+    "manual-bootstrap-e2e": "apps/manual-bootstrap-e2e",
+    "view-providers": "apps/view-providers",
+    "view-providers-e2e": "apps/view-providers-e2e"
   }
 }

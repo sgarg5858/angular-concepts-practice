@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/bridge-pattern",
+  "sourceRoot": "apps/bridge-pattern/src",
+  "prefix": "dependency-injection",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/bridge-pattern",
+        "index": "apps/bridge-pattern/src/index.html",
+        "main": "apps/bridge-pattern/src/main.ts",
+        "polyfills": "apps/bridge-pattern/src/polyfills.ts",
+        "tsConfig": "apps/bridge-pattern/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/bridge-pattern/src/favicon.ico",
+          "apps/bridge-pattern/src/assets"
+        ],
+        "styles": ["apps/bridge-pattern/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/bridge-pattern/src/environments/environment.ts",
+              "with": "apps/bridge-pattern/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "bridge-pattern:build:production"
+        },
+        "development": {
+          "browserTarget": "bridge-pattern:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "bridge-pattern:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/bridge-pattern/src/**/*.ts",
+          "apps/bridge-pattern/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/bridge-pattern"],
+      "options": {
+        "jestConfig": "apps/bridge-pattern/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

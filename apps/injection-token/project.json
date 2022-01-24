@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/injection-token",
+  "sourceRoot": "apps/injection-token/src",
+  "prefix": "dependency-injection",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/injection-token",
+        "index": "apps/injection-token/src/index.html",
+        "main": "apps/injection-token/src/main.ts",
+        "polyfills": "apps/injection-token/src/polyfills.ts",
+        "tsConfig": "apps/injection-token/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/injection-token/src/favicon.ico",
+          "apps/injection-token/src/assets"
+        ],
+        "styles": ["apps/injection-token/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/injection-token/src/environments/environment.ts",
+              "with": "apps/injection-token/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "injection-token:build:production"
+        },
+        "development": {
+          "browserTarget": "injection-token:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "injection-token:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/injection-token/src/**/*.ts",
+          "apps/injection-token/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/injection-token"],
+      "options": {
+        "jestConfig": "apps/injection-token/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/bridge-pattern-e2e",
+  "sourceRoot": "apps/bridge-pattern-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/bridge-pattern-e2e/cypress.json",
+        "devServerTarget": "bridge-pattern:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "bridge-pattern:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/bridge-pattern-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["bridge-pattern"]
+}
