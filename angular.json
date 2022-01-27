@@ -5,6 +5,8 @@
     "app-initializer-demo-e2e": "apps/app-initializer-demo-e2e",
     "bridge-pattern": "apps/bridge-pattern",
     "bridge-pattern-e2e": "apps/bridge-pattern-e2e",
+    "content-projection": "apps/content-projection",
+    "content-projection-e2e": "apps/content-projection-e2e",
     "injection-token": "apps/injection-token",
     "injection-token-e2e": "apps/injection-token-e2e",
     "manual-bootstrap": "apps/manual-bootstrap",

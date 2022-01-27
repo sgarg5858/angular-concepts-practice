@@ -1,0 +1,15 @@
+
+<ng-template #reuseThisContent>
+    <ng-content></ng-content>
+</ng-template>
+
+<div class="projected" *ngIf="!condition">
+    <h1>Projected Content in false condition :</h1>
+    <ng-container [ngTemplateOutlet]="reuseThisContent"></ng-container>
+</div>
+
+<div class="projected" *ngIf="condition">
+    <h1>Projected Content in Condition :</h1>
+    <ng-container [ngTemplateOutlet]="reuseThisContent"></ng-container>
+</div>
+
